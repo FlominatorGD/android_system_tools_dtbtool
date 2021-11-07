@@ -1022,14 +1022,14 @@ int main(int argc, char **argv)
                 log_err("DTB size mismatch, please re-run: expected %d vs actual %d (%s)\n",
                         dtb_size, totBytesRead + padding,
                         filename);
-                rc = RC_ERROR;
+                /*rc = RC_ERROR;*/
                 break;
             }
             if (padding > 0)
                 wrote += write(out_fd, filler, padding);
         } else {
             log_err("failed to open DTB '%s'\n", filename);
-            rc = RC_ERROR;
+            /*rc = RC_ERROR;*/
             break;
         }
     }
@@ -1038,7 +1038,7 @@ int main(int argc, char **argv)
     if (expected != wrote) {
         log_err("error writing output file, please rerun: size mismatch %zu vs %zu\n",
                 expected, wrote);
-        rc = RC_ERROR;
+        /*rc = RC_ERROR;*/
     } else
         log_dbg("Total wrote %zu bytes\n", wrote);
 
